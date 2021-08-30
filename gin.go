@@ -3,7 +3,8 @@ package gutils
 import (
 	"time"
 
-	"github.com/ftrako/logger"
+	"github.com/ftrako/glog"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -17,5 +18,9 @@ func LogStat(c *gin.Context, t time.Time) {
 			body = string(cbb)
 		}
 	}
-	logger.DebugDepth(1, "request: url:%v client_ip:%v body:%v cost:%v", c.Request.RequestURI, c.ClientIP(), body, time.Since(t))
+	if body == "" {
+		body = c.Request.Form.Encode()
+	}
+
+	glog.FuncDepth(1).D("request: url:%v client_ip:%v body:%v cost:%v", c.Request.RequestURI, c.ClientIP(), body, time.Since(t))
 }
