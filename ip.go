@@ -1,4 +1,4 @@
-package goutils
+package gutils
 
 import (
 	"bytes"
@@ -59,7 +59,7 @@ func IPInt2Str(ipInt int) string {
 }
 
 // 判断是否是IP地址
-func IsIPAddress(ip string) bool  {
+func IsIPAddress(ip string) bool {
 	ip = strings.TrimSpace(ip)
 	address := net.ParseIP(ip)
 	return address != nil

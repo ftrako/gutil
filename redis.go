@@ -1,4 +1,4 @@
-package goutils
+package gutils
 
 import (
 	"errors"
@@ -77,7 +77,7 @@ func IncrEXConn(conn redis.Conn, key string, expired int) error {
 func DescEX(pool *redis.Pool, key interface{}, expired int) error {
 	conn := pool.Get()
 	defer conn.Close()
-	return DescEXConn(conn,key,expired)
+	return DescEXConn(conn, key, expired)
 }
 
 func DescEXConn(conn redis.Conn, key interface{}, expired int) error {
@@ -110,7 +110,7 @@ func SendExpireConn(conn redis.Conn, key string, expired int) error {
 func Get(pool *redis.Pool, key string) (interface{}, error) {
 	conn := pool.Get()
 	defer conn.Close()
-	return GetConn(conn,key)
+	return GetConn(conn, key)
 }
 
 func GetConn(conn redis.Conn, key string) (interface{}, error) {

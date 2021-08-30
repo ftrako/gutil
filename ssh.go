@@ -1,10 +1,11 @@
-package goutils
+package gutils
 
 import (
-	"github.com/tmc/scp"
-	"golang.org/x/crypto/ssh"
 	"net"
 	"time"
+
+	"github.com/tmc/scp"
+	"golang.org/x/crypto/ssh"
 )
 
 func PrivateKeyConfig(user, privateKey string) (*ssh.ClientConfig, error) {

@@ -1,4 +1,4 @@
-package goutils
+package gutils
 
 import (
 	"fmt"
@@ -6,8 +6,8 @@ import (
 	"errors"
 
 	_ "github.com/go-sql-driver/mysql"
-	_ "github.com/lib/pq"
 	"github.com/jmoiron/sqlx"
+	_ "github.com/lib/pq"
 )
 
 func NewMysqlDB(host string, port int, user, pwd, dbName string, maxIdle int) (*sqlx.DB, error) {

@@ -1,8 +1,9 @@
-package goutils
+package gutils
 
 import (
 	"errors"
 	"fmt"
+
 	"github.com/dgrijalva/jwt-go"
 )
 

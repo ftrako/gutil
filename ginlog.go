@@ -1,9 +1,10 @@
-package goutils
+package gutils
 
 import (
+	"time"
+
 	"github.com/ftrako/logger"
 	"github.com/gin-gonic/gin"
-	"time"
 )
 
 // 需要ShouldBindBodyWith绑定参数
