@@ -19,3 +19,10 @@ func TestIPInt2Str(t *testing.T) {
 		t.FailNow()
 	}
 }
+
+func TestIsLanIP(t *testing.T) {
+	ip := "172.31.0.1"
+	if !IsLanIP(ip) {
+		t.FailNow()
+	}
+}

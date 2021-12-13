@@ -64,3 +64,38 @@ func IsIPAddress(ip string) bool {
 	address := net.ParseIP(ip)
 	return address != nil
 }
+
+// 判断是否是内网IP
+func IsLanIP(ip string) bool {
+	isInnerIp := false
+	ipNum := getIpNum(ip)
+	/**
+	  私有IP：A类  10.0.0.0-10.255.255.255
+	         B类  172.16.0.0-172.31.255.255
+	         C类  192.168.0.0-192.168.255.255
+	  当然，还有127这个网段是环回地址
+	  **/
+	aBegin := getIpNum("10.0.0.0")
+	aEnd := getIpNum("10.255.255.255")
+	bBegin := getIpNum("172.16.0.0")
+	bEnd := getIpNum("172.31.255.255")
+	cBegin := getIpNum("192.168.0.0")
+	cEnd := getIpNum("192.168.255.255")
+	isInnerIp = isLanNum(ipNum, aBegin, aEnd) || isLanNum(ipNum, bBegin, bEnd) || isLanNum(ipNum, cBegin, cEnd) || strings.Contains(ip, "127.0.0.1")
+	return isInnerIp
+}
+
+func getIpNum(ip string) int64 {
+	ips := strings.Split(ip, ".")
+	a, _ := strconv.Atoi(ips[0])
+	b, _ := strconv.Atoi(ips[1])
+	c, _ := strconv.Atoi(ips[2])
+	d, _ := strconv.Atoi(ips[3])
+
+	ipNum := int64(a*256*256*256 + b*256*256 + c*256 + d)
+	return ipNum
+}
+
+func isLanNum(userIp, begin, end int64) bool {
+	return (userIp >= begin) && (userIp <= end)
+}
