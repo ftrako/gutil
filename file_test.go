@@ -6,7 +6,7 @@ import (
 )
 
 func TestCreateDir(t *testing.T) {
-	err := CreateDir("abc/abc2")
+	err := CreateDir("/Users/chendajian/data/tmp/abc2")
 	if err != nil {
 		fmt.Println(err)
 		t.FailNow()
@@ -14,7 +14,7 @@ func TestCreateDir(t *testing.T) {
 }
 
 func TestCreateFile(t *testing.T) {
-	err := CreateFile("abc/abc.txt")
+	err := CreateFile("/Users/chendajian/data/tmp/abc.txt")
 	if err != nil {
 		fmt.Println(err)
 		t.FailNow()
