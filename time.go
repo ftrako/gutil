@@ -18,3 +18,8 @@ func Date2Number(t time.Time) int {
 	n, _ := strconv.Atoi(str)
 	return n
 }
+
+// 获取当天0点时间
+func GetZeroTime(t time.Time) time.Time {
+	return time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, t.Location())
+}
