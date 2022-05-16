@@ -24,6 +24,7 @@ func GetZeroTime(t time.Time) time.Time {
 	return time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, t.Location())
 }
 
+// 获取几月
 func GetMonth(t time.Time) int {
 	return int(t.Month())
 }
